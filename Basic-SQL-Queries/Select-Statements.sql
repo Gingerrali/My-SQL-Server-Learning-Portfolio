@@ -13,3 +13,9 @@ SELECT Suppliers.SupplierName,
     Suppliers.AlternateContactPersonID AS SecondaryContact,
     Suppliers.DeliveryMethodID
 FROM Orders.Suppliers;
+
+SELECT GETDATE() AS Today;
+GO
+    
+SELECT RAND() AS Random;
+GO
