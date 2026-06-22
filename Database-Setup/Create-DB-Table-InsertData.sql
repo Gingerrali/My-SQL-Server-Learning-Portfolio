@@ -71,3 +71,55 @@ VALUES
 (12, 'The Phone Company', 2, 43, 44, 7, 17346, 17346, '237408032', 'The Phone Company', 'Woodgrove Bank Karlstad', '214568', '7896236589', '25478', 30, NULL, '(218) 555-0105', '(218) 555-0105', 'http://www.thephone-company.com', 'Level 83', '339 Toorak Road', '56732', 'PO Box 8337', 'Ferny Wood', '56732', 1), 
 (13, 'Woodgrove Bank', 7, 45, 46, NULL, 30378, 30378, '028034202', 'Woodgrove Bank', 'Woodgrove Bank San Francisco', '325698', '2147825698', '65893', 7, 'Only speak to Donald', '(415) 555-0103', '(415) 555-0107', 'http://www.woodgrovebank.com', 'Level 3', '8488 Vienna Boulevard', '94101', 'PO Box 2390', 'Canterbury', '94101', 1);
 GO
+
+CREATE TABLE Orders.Sales (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    SalespersonPersonID INT,
+    PickedByPersonID INT NULL,
+    ContactPersonID INT,
+    BackorderOrderID INT NULL,
+    OrderDate DATE,
+    ExpectedDeliveryDate DATE,
+    CustomerPurchaseOrderNumber INT,
+    IsUndersupplyBackordered BIT,
+    Comments NVARCHAR(255) NULL,
+    DeliveryInstructions NVARCHAR(255) NULL,
+    InternalComments NVARCHAR(255) NULL,
+    PickingCompletedWhen DATETIME2,
+    LastEditedBy INT,
+    LastEditedWhen DATETIME2
+);
+GO
+
+INSERT INTO Orders.Sales
+(
+    OrderID,
+    CustomerID,
+    SalespersonPersonID,
+    PickedByPersonID,
+    ContactPersonID,
+    BackorderOrderID,
+    OrderDate,
+    ExpectedDeliveryDate,
+    CustomerPurchaseOrderNumber,
+    IsUndersupplyBackordered,
+    Comments,
+    DeliveryInstructions,
+    InternalComments,
+    PickingCompletedWhen,
+    LastEditedBy,
+    LastEditedWhen
+)
+VALUES
+(1, 832, 2, NULL, 3032, 45, '2013-01-01', '2013-01-02', 12126, 1, NULL, NULL, NULL, '2013-01-01 12:00:00', 7, NULL),
+(2, 803, 8, NULL, 3003, 46, '2013-01-01', '2013-01-02', 15342, 1, NULL, NULL, NULL, '2013-01-01 12:00:00', 7, NULL),
+(3, 105, 7, NULL, 1209, 47, '2013-01-01', '2013-01-02', 12211, 1, NULL, NULL, NULL, '2013-01-01 12:00:00', 7, NULL),
+(4, 57, 16, 3, 1113, NULL, '2013-01-01', '2013-01-02', 17129, 1, NULL, NULL, NULL, '2013-01-01 11:00:00', 3, NULL),
+(5, 905, 3, NULL, 3105, 48, '2013-01-01', '2013-01-02', 10369, 1, NULL, NULL, NULL, '2013-01-01 12:00:00', 7, NULL),
+(6, 976, 13, 3, 3176, NULL, '2013-01-01', '2013-01-02', 13383, 1, NULL, NULL, NULL, '2013-01-01 11:00:00', 3, NULL),
+(7, 575, 8, NULL, 2349, 49, '2013-01-01', '2013-01-02', 17913, 1, NULL, NULL, NULL, '2013-01-01 12:00:00', 7, NULL),
+(8, 964, 7, NULL, 3164, 50, '2013-01-01', '2013-01-02', 14518, 1, NULL, NULL, NULL, '2013-01-01 12:00:00', 7, NULL),
+(9, 77, 7, NULL, 1153, 51, '2013-01-01', '2013-01-02', 17577, 1, NULL, NULL, NULL, '2013-01-01 12:00:00', 7, NULL),
+(10, 191, 20, NULL, 1381, 52, '2013-01-01', '2013-01-02', 18030, 1, NULL, NULL, NULL, '2013-01-01 12:00:00', 7, NULL);
+GO
