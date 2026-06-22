@@ -17,6 +17,7 @@ SELECT Suppliers.SupplierName,
     Suppliers.AlternateContactPersonID AS SecondaryContact,
     Suppliers.DeliveryMethodID
 FROM Orders.Suppliers;
+GO
 
 -- Aggregate functions example
 SELECT
@@ -24,7 +25,13 @@ SELECT
     MIN(PaymentDays) AS ShortestPeriodRemaining,
     AVG(PaymentDays) AS AverageRemainingTime
 FROM Orders.Suppliers;
+GO
 
+-- Removes duplicates
+SELECT DISTINCT TOP 10 PaymentDays 
+FROM Orders.Suppliers;
+GO
+    
 -- Returns the current system date and time
 SELECT GETDATE() AS Today;
 GO
