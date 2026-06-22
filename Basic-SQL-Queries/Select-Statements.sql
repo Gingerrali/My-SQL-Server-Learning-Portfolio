@@ -18,6 +18,13 @@ SELECT Suppliers.SupplierName,
     Suppliers.DeliveryMethodID
 FROM Orders.Suppliers;
 
+-- Aggregate functions example
+SELECT
+    MAX(PaymentDays) AS LongestPeriodRemaining,
+    MIN(PaymentDays) AS ShortestPeriodRemaining,
+    AVG(PaymentDays) AS AverageRemainingTime
+FROM Orders.Suppliers;
+
 -- Returns the current system date and time
 SELECT GETDATE() AS Today;
 GO
