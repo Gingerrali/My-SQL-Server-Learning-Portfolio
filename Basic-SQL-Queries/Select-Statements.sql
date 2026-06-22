@@ -31,7 +31,12 @@ GO
 SELECT DISTINCT TOP 10 PaymentDays 
 FROM Orders.Suppliers;
 GO
-    
+
+-- Sorts by payment period in ascending order
+SELECT TOP 1000 * FROM Orders.Suppliers
+ORDER BY PaymentDays ASC;
+GO
+
 -- Returns the current system date and time
 SELECT GETDATE() AS Today;
 GO
