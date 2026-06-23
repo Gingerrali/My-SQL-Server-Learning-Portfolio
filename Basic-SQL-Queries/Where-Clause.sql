@@ -1,3 +1,4 @@
+-- Filters values greater than a specific number
 SELECT * FROM Orders.Sales
 WHERE PickedByPersonID > 0;
 GO
