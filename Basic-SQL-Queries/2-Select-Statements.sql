@@ -19,14 +19,6 @@ SELECT Suppliers.SupplierName,
 FROM Orders.Suppliers;
 GO
 
--- Aggregate functions example
-SELECT
-    MAX(PaymentDays) AS LongestPeriodRemaining,
-    MIN(PaymentDays) AS ShortestPeriodRemaining,
-    AVG(PaymentDays) AS AverageRemainingTime
-FROM Orders.Suppliers;
-GO
-
 -- Removes duplicates
 SELECT DISTINCT TOP 10 PaymentDays 
 FROM Orders.Suppliers;
