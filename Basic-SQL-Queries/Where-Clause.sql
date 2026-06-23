@@ -14,3 +14,8 @@ FROM Orders.Sales
 WHERE SalespersonPersonID BETWEEN 0 AND 10
 AND OrderDate = '2013-01-01';
 GO
+
+SELECT * FROM Orders.Suppliers
+WHERE SupplierCategoryID = 2
+OR SupplierCategoryID = 3;
+GO
