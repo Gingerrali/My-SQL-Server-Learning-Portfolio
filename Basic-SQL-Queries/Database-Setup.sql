@@ -1,4 +1,4 @@
--- I recreated these databases, their tables, and data on my own SQL Server instance
+-- I recreated this database, its tables, and data on my own SQL Server instance
 -- while following the "Complete Guide to Advanced SQL Server" course.
 -- The goal was to follow along with the course and gain hands-on experience 
 -- by building everything in my own environment.
