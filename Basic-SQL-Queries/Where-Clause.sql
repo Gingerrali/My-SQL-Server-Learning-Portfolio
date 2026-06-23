@@ -34,6 +34,7 @@ SELECT * FROM Orders.Suppliers
 WHERE NOT SupplierCategoryID = 2;
 GO
 
+-- Returns records with NULL values
 SELECT OrderID, 
   CustomerID, 
   SalespersonPersonID, 
