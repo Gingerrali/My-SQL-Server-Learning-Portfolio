@@ -27,3 +27,11 @@ GO
 SELECT * FROM Orders.Suppliers
 WHERE NOT SupplierCategoryID = 2;
 GO
+
+SELECT OrderID, 
+  CustomerID, 
+  SalespersonPersonID, 
+  BackorderOrderID
+FROM Orders.Sales
+WHERE BackorderOrderID IS NULL;
+GO
