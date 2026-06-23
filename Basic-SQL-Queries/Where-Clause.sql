@@ -19,3 +19,7 @@ SELECT * FROM Orders.Suppliers
 WHERE SupplierCategoryID = 2
 OR SupplierCategoryID = 3;
 GO
+
+SELECT * FROM Orders.Suppliers
+WHERE NOT SupplierCategoryID = 2;
+GO
