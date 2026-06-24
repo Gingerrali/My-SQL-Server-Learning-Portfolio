@@ -1,4 +1,4 @@
--- Creating the view
+-- Creates a view
 CREATE VIEW Orders.ActivePurchasesView
 AS
 SELECT OrderID, 
@@ -10,10 +10,10 @@ FROM Orders.Sales
 WHERE SalespersonPersonID > 3;
 GO
 
--- Checking the results from the view
+-- Displays the view data
 SELECT * FROM Orders.ActivePurchasesView;
 
--- Altering the view by adding aliases
+-- Alters the view by adding aliases
 ALTER VIEW Orders.ActivePurchasesView
 AS
 SELECT OrderID AS 'System Serial Number', 
@@ -25,7 +25,7 @@ FROM Orders.Sales
 WHERE SalespersonPersonID > 3;
 GO
 
--- Forbid to change the table, referencing the view
+-- Adds SCHEMABINDING
 ALTER VIEW Orders.ActivePurchasesView
 WITH SCHEMABINDING
 AS
@@ -38,6 +38,6 @@ FROM Orders.Sales
 WHERE SalespersonPersonID > 3;
 GO
 
--- Alteration should not be allowed, as table part of a view with schemabinding
+-- Attempts to remove a referenced column (should give an error)
 ALTER TABLE Orders.Sales
 DROP COLUMN CustomerID;
