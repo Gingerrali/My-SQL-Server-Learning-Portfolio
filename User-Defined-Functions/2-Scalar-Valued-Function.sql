@@ -32,6 +32,8 @@ DATENAME(MONTH, @FullDate) + ' ' +
 DATENAME(YEAR, @FullDate);
 END;
 
+DROP dbo.fn_LongDate;
+GO
 
 
 
