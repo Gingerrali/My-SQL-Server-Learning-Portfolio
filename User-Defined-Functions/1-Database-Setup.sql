@@ -1,5 +1,5 @@
-CREATE TABLE dbo.Actors
-(
+-- 
+CREATE TABLE dbo.Actors (
     actor_id INT PRIMARY KEY,
     name VARCHAR(100),
     dob DATE,
