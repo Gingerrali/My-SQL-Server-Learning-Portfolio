@@ -41,3 +41,7 @@ GO
 -- Attempts to remove a referenced column (should give an error)
 ALTER TABLE Orders.Sales
 DROP COLUMN CustomerID;
+
+-- Deletes the view
+DROP VIEW Orders.ActivePurchasesView;
+GO
