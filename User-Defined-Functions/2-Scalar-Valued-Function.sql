@@ -15,6 +15,7 @@ SELECT name, dbo.fn_LongDate(dob) AS FormattedDOB
 FROM dbo.Actors;
 
 -- Example of modifying the function to include day suffixes (st, nd, rd, th)
+-- CASE WHEN conditions for day suffixes
 ALTER FUNCTION dbo.fn_LongDate (@FullDate DATETIME)
 RETURNS VARCHAR(MAX)
 AS
