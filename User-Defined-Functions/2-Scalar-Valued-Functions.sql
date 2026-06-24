@@ -1,3 +1,4 @@
+-- An example of a custom scalar-valued function that converts a date into a different text format
 CREATE FUNCTION dbo.fn_LongDate (@FullDate DATETIME)
 RETURNS VARCHAR(MAX)
 AS
@@ -9,7 +10,7 @@ DATENAME(MONTH, @FullDate) + ' ' +
 DATENAME(YEAR, @FullDate);
 END;
 
--- Displays the function data
+-- Applies the function to an existing table and displays the function data
 SELECT name, dbo.fn_LongDate(dob) AS FormattedDOB 
 FROM dbo.Actors;
 
