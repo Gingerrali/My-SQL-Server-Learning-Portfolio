@@ -9,6 +9,7 @@ DATENAME(MONTH, @FullDate) + ' ' +
 DATENAME(YEAR, @FullDate);
 END;
 
+-- Displays the function data
 SELECT name, dbo.fn_LongDate(dob) AS FormattedDOB 
 FROM dbo.Actors;
 
