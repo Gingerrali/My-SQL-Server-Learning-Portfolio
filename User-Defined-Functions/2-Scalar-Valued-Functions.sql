@@ -9,7 +9,8 @@ DATENAME(MONTH, @FullDate) + ' ' +
 DATENAME(YEAR, @FullDate);
 END;
 
-SELECT name, dbo.fn_LongDate(dob) AS FormattedDOB FROM dbo.Actors;
+SELECT name, dbo.fn_LongDate(dob) AS FormattedDOB 
+FROM dbo.Actors;
 
 ALTER FUNCTION dbo.fn_LongDate (@FullDate DATETIME)
 RETURNS VARCHAR(MAX)
