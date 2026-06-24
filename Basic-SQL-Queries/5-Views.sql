@@ -1,5 +1,5 @@
 -- Creating the view
-CREATE VIEW Orders.OrdersView
+CREATE VIEW Orders.ActivePurchasesView
 AS
 SELECT OrderID, 
   CustomerID, 
@@ -11,10 +11,10 @@ WHERE SalespersonPersonID > 3;
 GO
 
 -- Checking the results from the view
-SELECT * FROM Orders.OrdersView;
+SELECT * FROM Orders.ActivePurchasesView;
 
 -- Altering the view by adding aliases
-ALTER VIEW Orders.OrdersView
+ALTER VIEW Orders.ActivePurchasesView
 AS
 SELECT OrderID AS 'System Serial Number', 
   CustomerID AS 'Customer Number', 
@@ -26,7 +26,7 @@ WHERE SalespersonPersonID > 3;
 GO
 
 -- Forbid to change the table, referencing the view
-ALTER VIEW Orders.OrdersView
+ALTER VIEW Orders.ActivePurchasesView
 WITH SCHEMABINDING
 AS
 SELECT OrderID AS 'System Serial Number', 
