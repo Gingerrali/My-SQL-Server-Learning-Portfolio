@@ -54,6 +54,7 @@ VALUES
 GO
 
 SELECT * FROM dbo.Actors;
+GO
 
 CREATE TABLE Orders.OrderLines (
     OrderLineID INT PRIMARY KEY,
@@ -97,3 +98,43 @@ VALUES
 GO
     
 SELECT * FROM Orders.OrderLines;
+GO
+
+CREATE TABLE Orders.Customers (
+    CustomerID INT PRIMARY KEY,
+    CustomerName NVARCHAR(100),
+    BillToCustomerID INT,
+    CustomerCategoryID INT,
+    BuyingGroupID INT,
+    PrimaryContactPersonID INT,
+    AlternateContactPersonID INT,
+    DeliveryMethodID INT,
+    DeliveryCityID INT,
+    PostalCityID INT,
+    PaymentDays INT,
+    PhoneNumber NVARCHAR(30),
+    DeliveryAddressLine1 NVARCHAR(100),
+    DeliveryAddressLine2 NVARCHAR(100),
+    DeliveryPostalCode NVARCHAR(20),
+    PostalAddressLine NVARCHAR(100),
+    PostalPostalCode NVARCHAR(20),
+);
+GO
+
+INSERT INTO Orders.Customers
+VALUES
+(100,'Tailspin Toys (Head Office)',1,3,1,1001,1002,3,19586,19586,7,'(308) 555-0100','Shop 38','1877 Mittal Road','90410','PO Box 8975','90410'),
+(101,'Tailspin Toys (Sylvanite, MT)',1,3,1,1003,1004,3,33475,33475,7,'(406) 555-0100','Shop 245','705 Dita Lane','90216','PO Box 259','90216'),
+(102,'Tailspin Toys (Peeples Valley, AZ)',1,3,1,1005,1006,3,26483,26483,7,'(480) 555-0100','Unit 217','1970 Khandke Road','90205','PO Box 3648','90205'),
+(103,'Tailspin Toys (Medicine Lodge, KS)',1,3,1,1007,1008,3,21692,21692,7,'(316) 555-0100','Suite 164','967 Riutta Boulevard','90152','PO Box 5065','90152'),
+(104,'Tailspin Toys (Gasport, NY)',1,3,1,1009,1010,3,12748,12748,7,'(212) 555-0100','Unit 176','1674 Skujins Boulevard','90261','PO Box 6294','90261'),
+(105,'Tailspin Toys (Jessie, ND)',1,3,1,1011,1012,3,17054,17054,7,'(701) 555-0100','Shop 196','483 Raut Lane','90298','PO Box 571','90298'),
+(106,'Tailspin Toys (Frankewing, TN)',1,3,1,1013,1014,3,12152,12152,7,'(423) 555-0100','Shop 27','904 Kellnerova Street','90761','PO Box 5684','90761'),
+(107,'Tailspin Toys (Bow Mar, CO)',1,3,1,1015,1016,3,3673,3673,7,'(303) 555-0100','Shop 282','752 Shaker Doust Boulevard','90484','PO Box 614','90484'),
+(108,'Tailspin Toys (Netcong, NJ)',1,3,1,1017,1018,3,23805,23805,7,'(201) 555-0100','Shop 33','25 Kasesalu Street','90129','PO Box 8369','90129'),
+(109,'Tailspin Toys (Wimbledon, ND)',1,3,1,1019,1020,3,37403,37403,7,'(701) 555-0100','Unit 67','372 Joo Lane','90061','PO Box 8702','90061'),
+(110,'Tailspin Toys (Devault, PA)',1,3,1,1021,1022,3,8987,8987,7,'(215) 555-0100','Unit 250','1432 Pullela Street','90185','PO Box 2676','90185');
+GO
+    
+SELECT * FROM Orders.Customers;
+GO
