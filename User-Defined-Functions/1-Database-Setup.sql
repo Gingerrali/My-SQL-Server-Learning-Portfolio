@@ -1,9 +1,13 @@
+USE GlobalTrade;
+GO
+
 CREATE TABLE dbo.Actors (
     actor_id INT PRIMARY KEY,
     name VARCHAR(100),
     dob DATE,
     nationality VARCHAR(50)
 );
+GO
 
 INSERT INTO dbo.Actors (actor_id, name, dob, nationality)
 VALUES
@@ -47,5 +51,49 @@ VALUES
 (132, 'Sam Worthington', '1976-08-02', 'Australian'),
 (133, 'Sandra Bullock', '1964-07-26', 'American'),
 (134, 'Scarlett Johansson', '1984-11-22', 'American');
+GO
 
 SELECT * FROM dbo.Actors;
+
+CREATE TABLE Orders.OrderLines (
+    OrderLineID INT PRIMARY KEY,
+    OrderID INT NOT NULL,
+    StockItemID INT NOT NULL,
+    Description NVARCHAR(100) NOT NULL,
+    PackageTypeID INT NOT NULL,
+    Quantity INT NOT NULL,
+    UnitPrice DECIMAL(10,2) NOT NULL,
+    TaxRate DECIMAL(5,3) NOT NULL,
+    PickedQuantity INT NOT NULL,
+    PickingCompletedWhen DATETIME2 NOT NULL,
+    LastEditedBy INT NOT NULL,
+    LastEditedWhen DATETIME2 NOT NULL
+);
+GO
+
+INSERT INTO Orders.OrderLines
+VALUES
+(1, 5, 164, '32 mm Double sided bubble wrap 50m', 7, 50, 112.00, 15.000, 50, '2013-01-02 11:00:00', 4, '2013-01-02 11:00:00'),
+(2, 1, 67, 'Ride on toy sedan car (Black) 1/12 scale', 7, 10, 230.00, 15.000, 10, '2013-01-01 11:00:00', 3, '2013-01-01 11:00:00'),
+(3, 2, 50, 'Developer joke mug - old C developers never die (White)', 7, 9, 13.00, 15.000, 9, '2013-01-01 11:00:00', 3, '2013-01-01 11:00:00'),
+(4, 6, 89, '"The Gu" red shirt XML tag t-shirt (Black) 3XS', 7, 72, 18.00, 15.000, 72, '2013-01-02 11:00:00', 4, '2013-01-02 11:00:00'),
+(5, 6, 171, '32 mm Anti static bubble wrap (Blue) 10m', 7, 90, 32.00, 15.000, 90, '2013-01-02 11:00:00', 4, '2013-01-02 11:00:00'),
+(6, 2, 10, 'USB food flash drive - chocolate bar', 7, 9, 32.00, 15.000, 9, '2013-01-01 11:00:00', 3, '2013-01-01 11:00:00'),
+(7, 7, 167, '10 mm Anti static bubble wrap (Blue) 50m', 7, 50, 99.00, 15.000, 50, '2013-01-02 11:00:00', 4, '2013-01-02 11:00:00'),
+(8, 7, 219, 'Void fill 400 L bag (White) 400L', 7, 80, 50.00, 15.000, 80, '2013-01-02 11:00:00', 4, '2013-01-02 11:00:00'),
+(9, 3, 114, 'Superhero action jacket (Blue) XXL', 7, 3, 30.00, 15.000, 3, '2013-01-01 11:00:00', 3, '2013-01-01 11:00:00'),
+(10, 7, 72, 'Ride on toy sedan car (Pink) 1/12 scale', 7, 9, 230.00, 15.000, 9, '2013-01-02 11:00:00', 4, '2013-01-02 11:00:00'),
+(11, 4, 206, 'Permanent marker black 5mm nib (Black) 5mm', 7, 96, 2.70, 15.000, 96, '2013-01-01 11:00:00', 3, '2013-01-01 11:00:00'),
+(12, 4, 130, 'Furry gorilla with big eyes slippers (Black) S', 7, 5, 32.00, 15.000, 5, '2013-01-01 11:00:00', 3, '2013-01-01 11:00:00'),
+(13, 4, 50, 'Developer joke mug - old C developers never die (White)', 7, 2, 13.00, 15.000, 2, '2013-01-01 11:00:00', 3, '2013-01-01 11:00:00'),
+(14, 5, 128, 'Plush shark slippers (Gray) L', 7, 4, 32.00, 15.000, 4, '2013-01-01 11:00:00', 3, '2013-01-01 11:00:00'),
+(15, 8, 100, '"The Gu" red shirt XML tag t-shirt (Black) 6XL', 7, 72, 18.00, 15.000, 72, '2013-01-02 11:00:00', 4, '2013-01-02 11:00:00'),
+(16, 8, 151, 'Pack of 12 action figures (male)', 9, 8, 16.00, 15.000, 8, '2013-01-02 11:00:00', 4, '2013-01-02 11:00:00'),
+(17, 5, 121, 'Dinosaur battery-powered slippers (Green) XL', 7, 3, 32.00, 15.000, 3, '2013-01-01 11:00:00', 3, '2013-01-01 11:00:00'),
+(18, 5, 155, 'Large sized bubblewrap roll 50m', 7, 20, 24.00, 15.000, 20, '2013-01-01 11:00:00', 3, '2013-01-01 11:00:00'),
+(19, 6, 150, 'Pack of 12 action figures (variety)', 9, 4, 16.00, 15.000, 4, '2013-01-01 11:00:00', 3, '2013-01-01 11:00:00'),
+(20, 6, 40, 'Developer joke mug - (hip, hip, array) (White)', 7, 6, 13.00, 15.000, 6, '2013-01-01 11:00:00', 3, '2013-01-01 11:00:00'),
+(21, 6, 126, 'Plush shark slippers (Gray) S', 7, 9, 32.00, 15.000, 9, '2013-01-01 11:00:00', 3, '2013-01-01 11:00:00');
+GO
+    
+SELECT * FROM Orders.OrderLines;
