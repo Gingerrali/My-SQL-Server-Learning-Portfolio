@@ -25,3 +25,7 @@ GO
 -- Executes the function for a sample customer
 SELECT * FROM fn_SaleStatistics(104);
 GO
+
+-- Deletes the function
+DROP FUNCTION dbo.fn_SaleStatistics;
+GO
