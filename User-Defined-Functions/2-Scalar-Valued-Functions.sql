@@ -36,5 +36,25 @@ END;
 DROP FUNCTION dbo.fn_LongDate;
 GO
 
+-- Creates a function that determines whether a number is even or odd
+-- IF condition checks whether dividing @InputNumber by 2 leaves no remainder
+-- (indicating an even number)
+CREATE OR ALTER FUNCTION dbo.EvenOdd (@InputNumber INT)
+RETURNS char(10)
+AS
+BEGIN
+	DECLARE @Output char(10);
+    BEGIN IF @InputNumber % 2 = 0
+    SET @Output = 'Even'
+    ELSE SET @Output = 'Odd'
+END;
+RETURN @Output;
+END;
+GO
+
+-- Applying the function to table data
+SELECT OrderID, dbo.EvenOdd(OrderID) AS 'Even or Odd'
+FROM Orders.Sales;
+GO
 
 
