@@ -22,6 +22,6 @@ WHERE Sales.OrderID =
 ;
 GO
 
-- Executes the function for a sample customer
+-- Executes the function for a sample customer
 SELECT * FROM fn_SaleStatistics(104);
 GO
