@@ -1,3 +1,4 @@
+-- Example of a table-valued function that returns the latest sales details for the specified customer
 CREATE OR ALTER FUNCTION fn_SaleStatistics (@CustomerID AS INT)
 RETURNS TABLE
 AS RETURN
