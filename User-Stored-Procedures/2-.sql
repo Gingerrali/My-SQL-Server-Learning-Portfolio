@@ -17,6 +17,9 @@ GO
 SELECT * FROM dbo.Colours;
 GO
 
-DELETE FROM dbo.Colours
-WHERE ColourName = 'Neon';
+CREATE OR ALTER PROCEDURE dbo.uspRemoveLastColour
+AS
+    DELETE FROM dbo.Colours
+    WHERE ColourID = (SELECT MAX(ColourID) FROM dbo.Colours);
+;
 GO
