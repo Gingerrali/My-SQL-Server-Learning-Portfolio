@@ -1,3 +1,6 @@
+USE GlobalTrade;
+GO
+    
 CREATE TABLE dbo.Colours (
     ColourID INT PRIMARY KEY,
     ColourName NVARCHAR(20),
