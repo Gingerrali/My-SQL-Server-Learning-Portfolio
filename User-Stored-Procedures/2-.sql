@@ -12,9 +12,11 @@ GO
 
 EXEC dbo.uspInsertColour 'Neon';
 EXEC dbo.uspInsertColour 'Baby Pink';
-
+GO
 
 SELECT * FROM dbo.Colours;
+GO
 
 DELETE FROM dbo.Colours
 WHERE ColourName = 'Neon';
+GO
