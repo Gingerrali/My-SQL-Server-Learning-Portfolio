@@ -29,3 +29,15 @@ GO
 -- Deletes the function
 DROP FUNCTION dbo.fn_SaleStatistics;
 GO
+
+-- 
+CREATE OR ALTER FUNCTION dbo.ActorsBornInYear (@StartYear int, @EndYear int)
+RETURNS TABLE
+AS
+RETURN
+(
+SELECT name, dob, nationality FROM dbo.Actors
+WHERE year(dob) BETWEEN @StartYear AND @EndYear
+);
+
+SELECT * FROM dbo.ActorsBornInYear(1980, 1990);
