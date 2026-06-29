@@ -30,7 +30,7 @@ GO
 DROP FUNCTION dbo.fn_SaleStatistics;
 GO
 
--- 
+-- Filters actors born within the specified year range
 CREATE OR ALTER FUNCTION dbo.ActorsBornInYear (@StartYear int, @EndYear int)
 RETURNS TABLE
 AS
@@ -40,8 +40,10 @@ WHERE year(dob) BETWEEN @StartYear AND @EndYear
 );
 GO
 
+-- Executes the function
 SELECT * FROM dbo.ActorsBornInYear(1980, 1990);
 GO
 
+-- Deletes function
 DROP FUNCTION dbo.ActorsBornInYear;
 GO
