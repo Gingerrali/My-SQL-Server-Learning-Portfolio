@@ -1,4 +1,5 @@
 -- Example of a table-valued function that returns the latest sales details for the specified customer
+-- Uses INNER JOINs to combine data from multiple tables
 CREATE OR ALTER FUNCTION fn_SaleStatistics (@CustomerID AS INT)
 RETURNS TABLE
 AS RETURN
@@ -21,5 +22,6 @@ WHERE Sales.OrderID =
 ;
 GO
 
+- Executes the function for a sample customer
 SELECT * FROM fn_SaleStatistics(104);
 GO
