@@ -18,8 +18,7 @@ WHERE Sales.OrderID =
     (SELECT TOP 1 Sales.OrderID
      FROM Orders.Sales
      WHERE Sales.CustomerID = @CustomerID
-     ORDER BY Sales.OrderID DESC)
-;
+     ORDER BY Sales.OrderID DESC);
 GO
 
 -- Executes the function for a sample customer
