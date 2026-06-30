@@ -1,15 +1,8 @@
-SELECT TOP (1000) [ColourID]
-      ,[ColourName]
-      ,[LastEditedBy]
-  FROM [GlobalTrade].[dbo].[Colours]
-
-  CREATE TABLE dbo.ColourAudit (
+CREATE TABLE dbo.ColourAudit (
     AuditID INT IDENTITY PRIMARY KEY,
     ColourName nvarchar(20),
     TimeAdded datetime2);
 GO
-
-SELECT * FROM dbo.ColourAudit;
 
 CREATE TRIGGER dbo.ColourChangeLog
 ON dbo.Colours
@@ -21,10 +14,12 @@ AS
         GETDATE()
     );
 ;
-
+GO
 
 EXEC dbo.uspInsertColour 'Neon';
 EXEC dbo.uspInsertColour 'Baby Pink';
 GO
 
 SELECT * FROM dbo.Colours;
+SELECT * FROM dbo.ColourAudit;
+GO
