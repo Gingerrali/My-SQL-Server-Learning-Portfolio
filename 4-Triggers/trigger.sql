@@ -23,3 +23,24 @@ GO
 SELECT * FROM dbo.Colours;
 SELECT * FROM dbo.ColourAudit;
 GO
+
+CREATE TABLE Orders.SalesAudit (
+    AuditID INT IDENTITY PRIMARY KEY,
+    CustomerID nvarchar(20),
+    TimeAdded datetime2);
+
+CREATE OR ALTER PROCEDURE Orders.uspHowManyPurchasesPerCustomer (@Customer AS INT)
+AS 
+SELECT CustomerID, CustomerName
+FROM Orders.Customers
+WHERE CustomerID = @Customer;
+SELECT CustomerID, SalespersonPersonID
+FROM Orders.Sales
+WHERE CustomerID = @Customer;
+INSERT INTO Orders.SalesAudit (CustomerID, TimeAdded)
+VALUES (@Customer, GETDATE()
+);
+
+SELECT * FROM Orders.SalesAudit;
+
+EXEC Orders.uspHowManyPurchasesPerCustomer 107;
