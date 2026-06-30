@@ -5,9 +5,11 @@ BEGIN
 SELECT @OrderLineCount = COUNT(*) FROM Orders.Orderlines
 WHERE Quantity >= @MinQuantity;
 END;
+GO
 
 -- Executes the procedure with a sample value
 DECLARE @Result INT;
 EXEC sp_TotalQuantity @MinQuantity = 20,
 @OrderLineCount = @Result OUTPUT;
 SELECT @Result AS TotalOrderlines;
+GO
