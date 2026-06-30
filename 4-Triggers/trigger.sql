@@ -28,6 +28,7 @@ CREATE TABLE Orders.SalesAudit (
     AuditID INT IDENTITY PRIMARY KEY,
     CustomerID INT,
     TimeAdded datetime2);
+GO
 
 CREATE OR ALTER PROCEDURE Orders.uspHowManyPurchasesPerCustomer (@Customer AS INT)
 AS 
@@ -40,7 +41,11 @@ WHERE CustomerID = @Customer;
 INSERT INTO Orders.SalesAudit (CustomerID, TimeAdded)
 VALUES (@Customer, GETDATE()
 );
-
-SELECT * FROM Orders.SalesAudit;
+GO
 
 EXEC Orders.uspHowManyPurchasesPerCustomer 107;
+GO
+    
+SELECT * FROM Orders.SalesAudit;
+GO
+
