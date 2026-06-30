@@ -1,4 +1,4 @@
--- Creates a stored procedure that inserts a new record using an input parameter
+-- Creates a stored procedure that inserts a new record using an INPUT parameter
 CREATE OR ALTER PROCEDURE dbo.uspInsertColour (@Colour AS nvarchar(100))
 AS
     DECLARE @ColourID INT
