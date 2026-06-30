@@ -11,7 +11,7 @@ AS
 ;
 GO
 
--- Executes the procedure with sample input values
+-- Executes the procedure with sample INPUT values
 EXEC dbo.uspInsertColour 'Neon';
 EXEC dbo.uspInsertColour 'Baby Pink';
 GO
