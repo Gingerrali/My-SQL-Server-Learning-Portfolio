@@ -7,11 +7,14 @@ WHERE title = @Title
 ) RETURN 1;
 ELSE RETURN 0;
 END;
+GO
 
 DECLARE @Status INT;
 EXEC @Status = sp_CheckMovieExists 'Psycho';
 SELECT @Status AS MovieExists;
+GO
 
 DECLARE @Status INT;
 EXEC @Status = sp_CheckMovieExists '300';
 SELECT @Status AS MovieExists;
+GO
