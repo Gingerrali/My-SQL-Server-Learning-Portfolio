@@ -26,7 +26,7 @@ GO
 
 CREATE TABLE Orders.SalesAudit (
     AuditID INT IDENTITY PRIMARY KEY,
-    CustomerID nvarchar(20),
+    CustomerID INT,
     TimeAdded datetime2);
 
 CREATE OR ALTER PROCEDURE Orders.uspHowManyPurchasesPerCustomer (@Customer AS INT)
