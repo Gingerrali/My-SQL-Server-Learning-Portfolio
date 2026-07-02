@@ -32,8 +32,8 @@ BEGIN TRANSACTION;
 -- Shows the table content
 SELECT * FROM dbo.Movies;
 GO
-	
--- Removes the last added record from the table
+
+-- Removes the last record from the table
 DELETE FROM dbo.Movies
 WHERE movie_id = 21;
 GO
