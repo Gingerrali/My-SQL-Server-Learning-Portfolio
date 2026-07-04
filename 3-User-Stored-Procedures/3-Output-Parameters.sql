@@ -1,4 +1,4 @@
--- Creates a stored procedure that counts table records using an OUTPUT parameter
+-- Creates a stored procedure that counts table records using an OUTPUT parameter.
 CREATE OR ALTER PROCEDURE sp_TotalQuantity (@MinQuantity INT, @OrderLineCount INT OUTPUT)
 AS
 BEGIN
@@ -7,7 +7,7 @@ WHERE Quantity >= @MinQuantity;
 END;
 GO
 
--- Executes the procedure with a sample value
+-- Executes the procedure with a sample value.
 DECLARE @Result INT;
 EXEC sp_TotalQuantity @MinQuantity = 20,
 @OrderLineCount = @Result OUTPUT;
