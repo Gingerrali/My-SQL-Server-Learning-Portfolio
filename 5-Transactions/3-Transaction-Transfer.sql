@@ -23,7 +23,9 @@ UPDATE dbo.BankAccounts
     SET Balance += @Amount
     WHERE AccountID = @ToAccount;
 COMMIT TRANSACTION;
-
+GO
+    
 -- Executes the transaction and displays the updated balances.
 EXEC dbo.TransferFunds 1, 3, 50.00;
 SELECT * FROM dbo.BankAccounts;
+GO
