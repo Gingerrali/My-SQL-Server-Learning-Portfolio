@@ -1,5 +1,5 @@
--- Example of a table-valued function that returns the latest sales details for the specified customer
--- Uses INNER JOINs to combine data from multiple tables
+-- Example of a table-valued function that returns the latest sales details for the specified customer.
+-- Uses INNER JOINs to combine data from multiple tables.
 CREATE OR ALTER FUNCTION fn_SaleStatistics (@CustomerID AS INT)
 RETURNS TABLE
 AS RETURN
@@ -21,15 +21,15 @@ WHERE Sales.OrderID =
      ORDER BY Sales.OrderID DESC);
 GO
 
--- Executes the function for a sample customer
+-- Executes the function for a sample customer.
 SELECT * FROM fn_SaleStatistics(104);
 GO
 
--- Deletes the function
+-- Deletes the function.
 DROP FUNCTION dbo.fn_SaleStatistics;
 GO
 
--- Filters actors born within the specified year range
+-- Filters actors born within the specified year range.
 CREATE OR ALTER FUNCTION dbo.ActorsBornInYear (@StartYear int, @EndYear int)
 RETURNS TABLE
 AS
@@ -39,10 +39,10 @@ WHERE year(dob) BETWEEN @StartYear AND @EndYear
 );
 GO
 
--- Executes the function
+-- Executes the function.
 SELECT * FROM dbo.ActorsBornInYear(1980, 1990);
 GO
 
--- Deletes function
+-- Deletes function.
 DROP FUNCTION dbo.ActorsBornInYear;
 GO
