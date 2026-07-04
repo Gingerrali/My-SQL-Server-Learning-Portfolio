@@ -10,3 +10,4 @@ BEGIN CATCH
 	ELSE PRINT 'An unknown error has occured'
 	END;
 END CATCH;
+GO
