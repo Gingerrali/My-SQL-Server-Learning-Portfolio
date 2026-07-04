@@ -24,6 +24,6 @@ UPDATE dbo.BankAccounts
     WHERE AccountID = @ToAccount;
 COMMIT TRANSACTION;
 
--- Executes the stored procedure with sample values and displays the final result
+-- Executes the transaction and displays the updated balances
 EXEC dbo.TransferFunds 1, 3, 50.00;
 SELECT * FROM dbo.BankAccounts;
