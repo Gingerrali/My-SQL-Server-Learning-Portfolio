@@ -5,3 +5,4 @@ SAVE TRANSACTION SavePointOne;
 EXEC dbo.uspInsertColour 'Galaxy Purple';
 ROLLBACK TRANSACTION SavePointOne;
 COMMIT TRANSACTION;
+GO
