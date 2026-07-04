@@ -1,4 +1,4 @@
--- Example of a custom, scalar-valued function that formats a date as readable text
+-- Example of a custom, scalar-valued function that formats a date as readable text.
 CREATE FUNCTION dbo.fn_LongDate (@FullDate DATETIME)
 RETURNS VARCHAR(MAX)
 AS
@@ -10,12 +10,12 @@ DATENAME(MONTH, @FullDate) + ' ' +
 DATENAME(YEAR, @FullDate);
 END;
 
--- Applying the function to table data
+-- Applying the function to table data.
 SELECT name, dbo.fn_LongDate(dob) AS FormattedDOB 
 FROM dbo.Actors;
 
--- Example of modifying the function to include day suffixes (st, nd, rd, th)
--- CASE WHEN conditions used to determine day suffixes
+-- Example of modifying the function to include day suffixes (st, nd, rd, th).
+-- CASE WHEN conditions used to determine day suffixes.
 ALTER FUNCTION dbo.fn_LongDate (@FullDate DATETIME)
 RETURNS VARCHAR(MAX)
 AS
@@ -36,9 +36,9 @@ END;
 DROP FUNCTION dbo.fn_LongDate;
 GO
 
--- Creates a function that determines whether a number is even or odd
+-- Creates a function that determines whether a number is even or odd.
 -- IF condition checks whether dividing @InputNumber by 2 leaves no remainder
--- (indicating an even number)
+-- (indicating an even number).
 CREATE OR ALTER FUNCTION dbo.EvenOdd (@InputNumber INT)
 RETURNS char(10)
 AS
@@ -52,7 +52,7 @@ RETURN @Output;
 END;
 GO
 
--- Applying the function to table data
+-- Applying the function to table data.
 SELECT OrderID, dbo.EvenOdd(OrderID) AS 'Even or Odd'
 FROM Orders.Sales;
 GO
