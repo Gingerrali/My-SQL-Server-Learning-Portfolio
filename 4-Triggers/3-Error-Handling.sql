@@ -1,8 +1,6 @@
--- Demonstrates error handling using TRY and CATCH
--- Attempts to insert a new record
--- Error 515 is a system-defined error for NULL values in NOT NULL columns
--- Displays a custom message instead of the default system error
--- Returns a generic message for all other errors
+-- Demonstrates error handling using TRY...CATCH
+-- Attempts to insert a new record and returns a custom message for Error 515
+-- (NULL values in NOT NULL columns), or a generic message for all other errors
 BEGIN TRY
 INSERT INTO Orders.Suppliers (SupplierName) VALUES ('The Walt Disney Company');
 END TRY
