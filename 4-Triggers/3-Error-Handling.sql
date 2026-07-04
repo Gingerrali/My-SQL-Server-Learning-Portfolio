@@ -1,6 +1,6 @@
--- Demonstrates error handling using TRY...CATCH
+-- Demonstrates error handling using TRY...CATCH.
 -- Attempts to insert a new record and returns a custom message for Error 515
--- (NULL values in NOT NULL columns), or a generic message for all other errors
+-- (NULL values in NOT NULL columns), or a generic message for all other errors.
 BEGIN TRY
 INSERT INTO Orders.Suppliers (SupplierName) VALUES ('The Walt Disney Company');
 END TRY
