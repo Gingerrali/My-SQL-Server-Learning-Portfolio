@@ -1,4 +1,4 @@
--- An example of a transaction that rolls back if a system error occurs.
+-- Demonstrates a transaction that rolls back when an error of any kind occurs.
 CREATE PROCEDURE uspAddMovie @MovieID CHAR(8), @Title VARCHAR(125), @Year INT
 AS
 BEGIN
@@ -14,5 +14,8 @@ VALUES (@MovieID, @Title, @Year);
 	COMMIT TRANSACTION;
 	PRINT 'Movie added successfully!';
 	END;
+GO
 
+-- Tests transaction rollback with a duplicate @Movie_ID.
 EXEC uspAddMovie '21', 'The Godfather', '1972';
+GO
