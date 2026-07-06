@@ -27,7 +27,6 @@ SELECT Stock.StockItemID,
     COALESCE (ColourName, Brand, Size) AS ColourBrandSize,
     MarketingComments,
     CASE
-        WHEN (MarketingComments IS NOT NULL) THEN MarketingComments
         WHEN (ColourName IS NOT NULL) THEN CONCAT('Colour is ', ColourName)
         WHEN (Brand IS NOT NULL) THEN CONCAT('Brand is ', Brand)
         WHEN (Size IS NOT NULL) THEN CONCAT('Size is ', Size)
