@@ -1,8 +1,11 @@
+USE GlobalTrade;
+GO
+    
 CREATE TABLE dbo.Directors (
-    director_id INT PRIMARY KEY,
-    name NVARCHAR(100) NOT NULL,
-    dob DATE NOT NULL,
-    nationality NVARCHAR(50) NOT NULL
+director_id INT PRIMARY KEY,
+name NVARCHAR(100) NOT NULL,
+dob DATE NOT NULL,
+nationality NVARCHAR(50) NOT NULL
 );
 GO
 
