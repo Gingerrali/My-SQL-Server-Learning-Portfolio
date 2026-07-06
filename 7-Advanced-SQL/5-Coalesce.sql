@@ -16,9 +16,6 @@ INSERT INTO Orders.Stock (StockItemID, StockItemName, Size, MarketingComments)
 VALUES (4, 'Big wheel monster truck', '1/12 scale', 'Suits child to 20 kg');
 GO
 
-SELECT * FROM Orders.Stock;
-GO
-
 SELECT Stock.StockItemID,
     Stock.StockItemName,
     Colours.ColourName,
