@@ -36,3 +36,4 @@ SELECT Stock.StockItemID,
 FROM Orders.Stock LEFT JOIN dbo.Colours
     ON Stock.ColourID = Colours.ColourID
 ORDER BY StockItemId;
+GO
