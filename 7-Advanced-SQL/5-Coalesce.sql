@@ -1,9 +1,9 @@
 CREATE TABLE Orders.Stock (
     StockItemID INT PRIMARY KEY,
-    StockItemName nvarchar(100),
+    StockItemName NVARCHAR(100),
     ColourID INT,
-    Brand nvarchar(20),
-    Size nvarchar(20),
+    Brand NVARCHAR(20),
+    Size NVARCHAR(20),
     MarketingComments NVARCHAR(100)
 );
 INSERT INTO Orders.Stock (StockItemID, StockItemName, ColourID, MarketingComments)
