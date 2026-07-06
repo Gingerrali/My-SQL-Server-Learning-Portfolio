@@ -1,3 +1,4 @@
+-- Creates a sample table containing NULL values.
 CREATE TABLE Orders.Stock (
     StockItemID INT PRIMARY KEY,
     StockItemName NVARCHAR(100),
@@ -16,6 +17,7 @@ INSERT INTO Orders.Stock (StockItemID, StockItemName, Size, MarketingComments)
 VALUES (4, 'Big wheel monster truck', '1/12 scale', 'Suits child to 20 kg');
 GO
 
+-- Uses COALESCE to handle NULL values by returning the first available value.
 SELECT Stock.StockItemID,
     Stock.StockItemName,
     Colours.ColourName,
