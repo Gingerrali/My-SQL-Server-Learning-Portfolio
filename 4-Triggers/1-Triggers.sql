@@ -8,7 +8,7 @@ GO
 -- Automatically logs newly inserted records into the audit table.
 CREATE TRIGGER dbo.ColourChangeLog
 ON dbo.Colours
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
     INSERT INTO dbo.ColourAudit (ColourName, TimeAdded)
     VALUES (
