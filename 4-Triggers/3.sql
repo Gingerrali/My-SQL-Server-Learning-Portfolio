@@ -10,7 +10,7 @@ CREATE OR ALTER TRIGGER PreventTableChanges
 ON ALL SERVER
 FOR DDL_TABLE_EVENTS
 AS
-PRINT 'A trigger is cancelling all ALTER TABLE statements.';
+PRINT 'A trigger is cancelling all table DDL statements.';
 ROLLBACK;
 GO
 
