@@ -36,6 +36,8 @@ END;
 DROP FUNCTION dbo.fn_LongDate;
 GO
 
+
+	
 -- Creates a function that determines whether a number is even or odd.
 -- IF condition checks whether dividing @InputNumber by 2 leaves no remainder
 -- (indicating an even number).
