@@ -13,6 +13,8 @@ SELECT * FROM Birthdays;
 DROP TABLE Birthdays;
 GO
 
+
+    
 -- Uses ISNULL to replace NULL values with 1.
 SELECT SupplierID,
        SupplierName,
@@ -20,6 +22,8 @@ SELECT SupplierID,
 FROM Orders.Suppliers;
 GO
 
+
+    
 -- Replaces NULL values with a default text.
 SELECT Customers.CustomerName,
        Customers.CustomerCategoryID,
