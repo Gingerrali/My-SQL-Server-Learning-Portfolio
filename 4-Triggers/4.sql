@@ -59,7 +59,7 @@ GO
 
 
 
--- 
+-- Stores information about DDL table events.
 CREATE TABLE dbo.Table2EventCapture (
     EventID int IDENTITY PRIMARY KEY,
     EventTime datetime2,
@@ -70,6 +70,7 @@ CREATE TABLE dbo.Table2EventCapture (
 );
 GO
 
+-- A DDL trigger that captures all table-related events using EVENTDATA().
 CREATE OR ALTER TRIGGER TableEventTrigger
 ON DATABASE
 FOR DDL_TABLE_EVENTS
