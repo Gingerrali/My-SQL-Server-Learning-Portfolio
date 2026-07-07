@@ -76,7 +76,7 @@ VALUES ('KinetEco');
 SELECT * FROM dbo.Vendors;
 GO
 
--- Uses an INSTEAD OF trigger to save deleted records in an archive table.
+-- Creates an AFTER DELETE trigger to save deleted records in an archive table.
 CREATE TRIGGER dbo.ArchiveVendors
 ON dbo.Vendors
 AFTER DELETE
@@ -92,6 +92,7 @@ UPDATE VendorArchive
 ;
 GO
 
+-- Tests the trigger and verifies the archive table.
 DELETE FROM dbo.Vendors
 WHERE VendorID = 1;
 SELECT * FROM dbo.Vendors;
