@@ -1,3 +1,6 @@
+-- The following examples demonstrate SQL Server Ledger, which uses blockchain 
+-- technology to help verify that data has not been modified without authorization.
+
 -- Creates an updatable ledger table that allows data to be updated 
 -- while automatically saving every previous version of the data.
 CREATE TABLE Orders.Accounts (
