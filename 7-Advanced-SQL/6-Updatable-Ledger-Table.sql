@@ -1,3 +1,5 @@
+-- Creates an updatable ledger table that allows data to be updated 
+-- while automatically saving every previous version of the data.
 CREATE TABLE Orders.Accounts (
     CustomerID INT NOT NULL PRIMARY KEY CLUSTERED,
     FirstName VARCHAR (50) NOT NULL,
@@ -9,6 +11,7 @@ WITH
 );
 GO
 
+-- Adds sample customer accounts.    
 INSERT INTO Orders.Accounts VALUES
 (1, 'Ruiz', 50.00),
 (2, 'Katherine', 100.00),
@@ -16,11 +19,14 @@ INSERT INTO Orders.Accounts VALUES
 (4, 'Shannon', 75.00);
 GO
 
+-- Updates the balance to demonstrate how the ledger records the change.
 UPDATE Orders.Accounts
 SET Balance = 60.00 
 WHERE CustomerID = 2;
 GO
 
+-- Displays the current data, and adds system-generated ledger columns
+-- that automatically track the history of each record.
 SELECT CustomerID                        
    ,FirstName
    ,Balance
@@ -31,6 +37,8 @@ SELECT CustomerID
  FROM Orders.Accounts;
  GO
 
+-- Shows the history table with previous record versions
+-- and the ledger table with all recorded data changes.
 SELECT * FROM Orders.AccountsHistory;
 SELECT * FROM Orders.Accounts_Ledger
     ORDER BY ledger_transaction_id, ledger_sequence_number;               
