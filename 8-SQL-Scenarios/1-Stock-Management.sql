@@ -23,7 +23,7 @@ CREATE TABLE WarehouseReceiving (
     QuantityReceived int);
 GO
 
--- Adds the initial products to the warehouse.  
+-- Adds the initial products.  
 INSERT INTO dbo.Products (ProductName, QuantityOnHand)
 VALUES ('Solar Charger', 0), ('Wind Turbine', 0), ('Emergency Radio', 0), ('Rechargable Battery', 0);
 GO
