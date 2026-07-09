@@ -43,3 +43,8 @@ SELECT * FROM Orders.AccountsHistory;
 SELECT * FROM Orders.Accounts_Ledger
     ORDER BY ledger_transaction_id, ledger_sequence_number;               
 GO
+
+-- Bonus: Creates a database with the ledger feature enabled.
+CREATE DATABASE LedgerDB
+WITH LEDGER = ON;
+GO
