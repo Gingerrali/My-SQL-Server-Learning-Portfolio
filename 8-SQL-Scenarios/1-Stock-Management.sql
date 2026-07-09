@@ -16,7 +16,7 @@ CREATE TABLE dbo.InventoryAudit (
     NewQuantity int);
 GO
 
---  Creates the warehouse table used to record incoming stock.
+--  Creates the warehouse table, used to record incoming stock.
 CREATE TABLE WarehouseReceiving (
     ReceiptID int IDENTITY PRIMARY KEY,
     ProductID int,
