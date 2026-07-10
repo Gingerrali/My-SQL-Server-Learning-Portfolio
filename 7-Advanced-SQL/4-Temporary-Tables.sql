@@ -14,3 +14,14 @@ GO
 SELECT TOP 10  * FROM #MovieRevenues
 ORDER BY RevenueGenerated DESC;
 GO
+
+
+    
+-- Creates a table variable (@) available only within the current batch.    
+DECLARE @EuropeanDirectors TABLE (
+    director_id CHAR(10), 
+    name VARCHAR(100), 
+    dob DATE, 
+    nationality VARCHAR(40)
+);
+GO
