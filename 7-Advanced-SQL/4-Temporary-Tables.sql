@@ -1,6 +1,6 @@
--- Local tables are temporary and visible in only one session and marked with '#'. 
--- '##' suggests a ... table and gives access to all with access to the server.
--- The table below is an example of a local table that sorts movies under highest revenue.
+-- Creates a local temporary table (#) available only in the current session;
+-- global temporary tables (##) can also be created, and are shared across the server.
+-- This example temporarily stores movie revenue data for reporting purposes.
 CREATE TABLE #MovieRevenues (
     Movie_id INT, Title VARCHAR(200), RevenueGenerated INT
 );
