@@ -91,6 +91,23 @@ INSERT INTO #TopCustomers (CustomerID, CustomerName, TotalOrders, TotalQuantityP
   GROUP BY Customers.CustomerID,
     Customers.CustomerName
   HAVING SUM(Orderlines.Quantity * Orderlines.UnitPrice) > 10000;
+GO
 
 SELECT * FROM #TopCustomers
 ORDER BY TotalRevenue DESC;
+GO
+
+-- Creates a stored procedure that returns only customers meeting the specified minimum total revenue.
+CREATE OR ALTER PROCEDURE Orders.GetCustomersByRevenue (@MinimumRevenue decimal(10,2))
+AS
+BEGIN
+SELECT * FROM #TopCustomers
+WHERE TotalRevenue >= @MinimumRevenue;
+END;
+GO
+
+EXEC Orders.GetCustomersByRevenue
+    @MinimumRevenue = 11000;
+GO
+
+
