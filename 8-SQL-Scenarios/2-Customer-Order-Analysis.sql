@@ -25,7 +25,7 @@ GROUP BY Customers.CustomerID,
 ORDER BY TotalRevenue DESC;
 GO
 
--- Filters the analysis to show only customers with more than 5 orders and a total revenue above 10000.
+-- Filters the analysis to show only customers with more than 5 orders and a total revenue above 5000.
 SELECT Customers.CustomerID, 
 CustomerName AS Name, 
 COUNT(DISTINCT Sales.OrderID) AS TotalOrders,
@@ -39,7 +39,7 @@ ON Orders.Sales.OrderID = Orders.Orderlines.OrderID
 GROUP BY Customers.CustomerID,
 Customers.CustomerName
 HAVING COUNT(DISTINCT Sales.OrderID) > 5
-AND SUM(Orderlines.Quantity * Orderlines.UnitPrice) > 10000
+AND SUM(Orderlines.Quantity * Orderlines.UnitPrice) > 5000
 ORDER BY TotalRevenue DESC;
 
 
