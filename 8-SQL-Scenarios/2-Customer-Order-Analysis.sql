@@ -110,4 +110,22 @@ EXEC Orders.GetCustomersByRevenue
     @MinimumRevenue = 11000;
 GO
 
+-- Uses TRY/CATCH to handle invalid minimum revenue values.
+CREATE OR ALTER PROCEDURE Orders.GetCustomersByRevenue (@MinimumRevenue decimal(10,2))
+AS
+BEGIN 
+  BEGIN TRY
+    BEGIN IF @MinimumRevenue <= 0
+    THROW 51000, 'You need a higher amount of revenue', 1;
+    END
+  SELECT * FROM #TopCustomers
+  WHERE TotalRevenue >= @MinimumRevenue;
+  END TRY
+  BEGIN CATCH
+    PRINT ERROR_MESSAGE();
+  END CATCH
+END;
+GO
 
+EXEC Orders.GetCustomersByRevenue '0';
+GO
