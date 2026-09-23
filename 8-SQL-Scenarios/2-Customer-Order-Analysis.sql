@@ -33,19 +33,44 @@ SUM(Orderlines.Quantity) AS TotalQuantityPurchased,
 SUM((Orderlines.Quantity)*(Orderlines.UnitPrice)) AS TotalRevenue
 FROM Orders.Customers
 INNER JOIN Orders.Sales
-ON Orders.Customers.CustomerID = Orders.Sales.CustomerID
+  ON Orders.Customers.CustomerID = Orders.Sales.CustomerID
 INNER JOIN Orders.OrderLines
-ON Orders.Sales.OrderID = Orders.Orderlines.OrderID
+  ON Orders.Sales.OrderID = Orders.Orderlines.OrderID
 GROUP BY Customers.CustomerID,
 Customers.CustomerName
 HAVING COUNT(DISTINCT Sales.OrderID) > 5
-AND SUM(Orderlines.Quantity * Orderlines.UnitPrice) > 5000
+  AND SUM(Orderlines.Quantity * Orderlines.UnitPrice) > 5000
 ORDER BY TotalRevenue DESC;
+GO
 
 -- Uses a CTE to calculate each customer's total orders, purchased quantities, and total revenue,
 -- then joins the result with the Customers table to display the customer name.
 -- Categorizes customers based on their total revenue.
-
+WITH CustomerSales AS (
+  SELECT CustomerID,
+  COUNT(DISTINCT Sales.OrderID) AS TotalOrders,
+  SUM(Orderlines.Quantity) AS TotalQuantityPurchased,
+  SUM((Orderlines.Quantity)*(Orderlines.UnitPrice)) AS TotalRevenue
+FROM Orders.Sales
+INNER JOIN Orders.OrderLines
+  ON Orders.Sales.OrderID = Orders.Orderlines.OrderID
+GROUP BY Sales.CustomerID
+)
+  SELECT CustomerSales.CustomerID, 
+  CustomerName, 
+  TotalOrders, 
+  TotalQuantityPurchased, 
+  TotalRevenue,
+  CASE WHEN TotalRevenue >= 5000 THEN 'VIP'
+  WHEN TotalRevenue >= 2000 THEN 'HighValue'
+  WHEN TotalRevenue >= 1000 THEN 'Regular'
+  ELSE 'LowValue'
+  END AS CustomerCategory
+  FROM CustomerSales
+  JOIN Orders.Customers
+    ON CustomerSales.CustomerID = Orders.Customers.CustomerID
+  ORDER BY TotalRevenue DESC;
+GO
 
 
 
