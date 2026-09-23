@@ -72,5 +72,25 @@ GROUP BY Sales.CustomerID
   ORDER BY TotalRevenue DESC;
 GO
 
+-- Creates a temporary table to store customers with a total revenue above 10000.
+-- Displays the results from the highest to the lowest total revenue.
+CREATE TABLE #TopCustomers (
+    CustomerID INT, CustomerName VARCHAR(50), TotalOrders INT, TotalQuantityPurchased INT, TotalRevenue decimal(10,2)
+);
+INSERT INTO #TopCustomers (CustomerID, CustomerName, TotalOrders, TotalQuantityPurchased, TotalRevenue)
+  SELECT Customers.CustomerID, 
+    CustomerName, 
+    COUNT(DISTINCT Sales.OrderID),
+    SUM(Orderlines.Quantity),
+    SUM((Orderlines.Quantity)*(Orderlines.UnitPrice))
+  FROM Orders.Customers
+  INNER JOIN Orders.Sales
+    ON Orders.Customers.CustomerID = Orders.Sales.CustomerID
+  INNER JOIN Orders.OrderLines
+    ON Orders.Sales.OrderID = Orders.Orderlines.OrderID
+  GROUP BY Customers.CustomerID,
+    Customers.CustomerName
+  HAVING SUM(Orderlines.Quantity * Orderlines.UnitPrice) > 10000;
 
-
+SELECT * FROM #TopCustomers
+ORDER BY TotalRevenue DESC;
