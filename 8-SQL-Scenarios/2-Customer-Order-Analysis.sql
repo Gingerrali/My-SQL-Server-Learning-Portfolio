@@ -24,3 +24,22 @@ GROUP BY Customers.CustomerID,
   Customers.CustomerName
 ORDER BY TotalRevenue DESC;
 GO
+
+-- Filters the analysis to show only customers with more than 5 orders and a total revenue above 10000.
+SELECT Customers.CustomerID, 
+CustomerName AS Name, 
+COUNT(DISTINCT Sales.OrderID) AS TotalOrders,
+SUM(Orderlines.Quantity) AS TotalQuantityPurchased,
+SUM((Orderlines.Quantity)*(Orderlines.UnitPrice)) AS TotalRevenue
+FROM Orders.Customers
+INNER JOIN Orders.Sales
+ON Orders.Customers.CustomerID = Orders.Sales.CustomerID
+INNER JOIN Orders.OrderLines
+ON Orders.Sales.OrderID = Orders.Orderlines.OrderID
+GROUP BY Customers.CustomerID,
+Customers.CustomerName
+HAVING COUNT(DISTINCT Sales.OrderID) > 5
+AND SUM(Orderlines.Quantity * Orderlines.UnitPrice) > 10000
+ORDER BY TotalRevenue DESC;
+
+
