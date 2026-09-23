@@ -43,4 +43,9 @@ AND SUM(Orderlines.Quantity * Orderlines.UnitPrice) > 5000
 ORDER BY TotalRevenue DESC;
 
 -- Uses a CTE to calculate each customer's total orders, purchased quantities, and total revenue,
--- then joins the result with the Customers table to display the customer name and assign a revenue category.
+-- then joins the result with the Customers table to display the customer name.
+-- Categorizes customers based on their total revenue.
+
+
+
+
