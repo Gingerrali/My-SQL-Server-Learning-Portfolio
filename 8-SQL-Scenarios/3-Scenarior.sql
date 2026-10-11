@@ -1,6 +1,7 @@
 -- Scenario:
--- This project analyses current stock levels, warehouse replenishments,
--- and inventory movements to identify stock risks and track inventory changes over time.
+-- The company needs to monitor its warehouse inventory in order to identify products with
+-- insufficient stock, track inventory changes over time, and review previous stock deliveries.
+
 SELECT * FROM dbo.Products;
 SELECT * FROM dbo.WarehouseReceiving;
 SELECT * FROM dbo.InventoryAudit;
