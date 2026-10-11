@@ -57,28 +57,31 @@ INNER JOIN dbo.Products
 ORDER BY EventTimestamp DESC;
 GO
 
--- reshenie 4
+-- Summarises inventory activity for each product by calculating the number of events,
+-- the total stock added, the total stock removed, and the overall net change in quantity.
+-- Products without audit records are also included and shown with zero values.
 WITH InventorySummary AS (
-    SELECT ProductID,
-    COUNT(EventTimestamp) AS InventoryEvents,
-    SUM(CASE 
-    WHEN NewQuantity > OldQuantity
-    THEN NewQuantity - OldQuantity
-    END) AS TotalQuantityAdded,
-    SUM(CASE 
-    WHEN NewQuantity < OldQuantity
-    THEN OldQuantity - NewQuantity
-    END) AS TotalQuantityRemoved,
-    SUM(NewQuantity - OldQuantity) AS NetQuantityChange
+    SELECT 
+        ProductID,
+        COUNT(EventTimestamp) AS InventoryEvents,
+        SUM(CASE 
+            WHEN NewQuantity > OldQuantity
+            THEN NewQuantity - OldQuantity
+            END) AS TotalQuantityAdded,
+        SUM(CASE 
+            WHEN NewQuantity < OldQuantity
+            THEN OldQuantity - NewQuantity
+            END) AS TotalQuantityRemoved,
+        SUM(NewQuantity - OldQuantity) AS NetQuantityChange
     FROM dbo.InventoryAudit
     GROUP BY ProductID
     )
-    SELECT ProductName, 
+SELECT ProductName, 
     ISNULL(InventoryEvents, 0) AS InventoryEvents,
     ISNULL(TotalQuantityAdded, 0) AS TotalQuantityAdded,
     ISNULL(TotalQuantityRemoved, 0) AS TotalQuantityRemoved,
     ISNULL(NetQuantityChange, 0) AS NetQuantityChange
-    FROM InventorySummary
-    RIGHT JOIN dbo.Products
+FROM InventorySummary
+RIGHT JOIN dbo.Products
     ON InventorySummary.ProductID = Products.ProductID;
-    GO
+GO
