@@ -21,7 +21,7 @@ FROM dbo.Products
 ORDER BY QuantityOnHand ASC;
 GO
 
--- Uses a CTE to calculate the total quantity received for each product
+-- Uses a CTE to calculate the total quantity received for each product,
 -- and combines it with current inventory data, including products with no recorded deliveries.
 WITH ProductReplenishment AS (
     SELECT 
@@ -40,19 +40,20 @@ WITH ProductReplenishment AS (
 SELECT * FROM ProductReplenishment;
 GO
 
--- reshenie 3
+-- Tracks how product quantities have changed over time by comparing old and new quantities,
+-- and classifies each movement as a stock increase, decrease, or no change.
 SELECT ProductName,
-EventTimestamp,
-OldQuantity,
-NewQuantity,
-NewQuantity - OldQuantity AS QuantityDifference,
-CASE WHEN NewQuantity > OldQuantity THEN 'Stock Increase'
-WHEN NewQuantity < OldQuantity THEN 'Stock Decrease'
-ELSE 'No Change'
-END AS MovementType
+    EventTimestamp,
+    OldQuantity,
+    NewQuantity,
+    NewQuantity - OldQuantity AS QuantityDifference,
+    CASE WHEN NewQuantity > OldQuantity THEN 'Stock Increase'
+        WHEN NewQuantity < OldQuantity THEN 'Stock Decrease'
+        ELSE 'No Change'
+    END AS MovementType
 FROM dbo.InventoryAudit
 INNER JOIN dbo.Products
-ON InventoryAudit.ProductID = Products.ProductID
+    ON InventoryAudit.ProductID = Products.ProductID
 ORDER BY EventTimestamp DESC;
 GO
 
