@@ -10,12 +10,12 @@ GO
 
 -- Classifies each product based on its current stock level to identify out-of-stock, low-stock, and available products.
 SELECT ProductID,
-ProductName,
-QuantityOnHand,
-LastRestocked,
+    ProductName,
+    QuantityOnHand,
+    LastRestocked,
 CASE WHEN QuantityOnHand = 0 THEN 'Out of stock'
-WHEN QuantityOnHand BETWEEN 1 AND 10 THEN 'Low stock'
-WHEN QuantityOnHand > 10 THEN 'In stock'
+    WHEN QuantityOnHand BETWEEN 1 AND 10 THEN 'Low stock'
+    WHEN QuantityOnHand > 10 THEN 'In stock'
 END AS StockStatus
 FROM dbo.Products
 ORDER BY QuantityOnHand ASC;
