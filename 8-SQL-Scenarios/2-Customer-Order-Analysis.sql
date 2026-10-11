@@ -3,7 +3,7 @@
 -- the most active customers and those generating the highest revenue,
 -- then to categorize customers based on their total revenue.
 
--- Displays the tables used for the analysis
+-- Displays the tables used for the analysis.
 SELECT * FROM Orders.Customers;
 SELECT * FROM Orders.Sales;
 SELECT * FROM Orders.OrderLines;
