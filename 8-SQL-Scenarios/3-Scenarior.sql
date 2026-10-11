@@ -21,7 +21,8 @@ FROM dbo.Products
 ORDER BY QuantityOnHand ASC;
 GO
 
--- решение на 2
+-- Uses a CTE to calculate the total quantity received for each product
+-- and combines it with current inventory data, including products with no recorded deliveries.
 WITH ProductReplenishment AS (
     SELECT 
         Products.ProductID,
