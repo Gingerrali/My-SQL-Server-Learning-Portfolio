@@ -1,3 +1,6 @@
+-- Scenario:
+-- This project analyses current stock levels, warehouse replenishments,
+-- and inventory movements to identify stock risks and track inventory changes over time.
 SELECT * FROM dbo.Products;
 SELECT * FROM dbo.WarehouseReceiving;
 SELECT * FROM dbo.InventoryAudit;
