@@ -2,10 +2,11 @@
 -- The company needs to monitor its warehouse inventory in order to identify products with
 -- insufficient stock, track inventory changes over time, and review previous stock deliveries.
 
+-- Displays the tables used for the analysis
 SELECT * FROM dbo.Products;
 SELECT * FROM dbo.WarehouseReceiving;
 SELECT * FROM dbo.InventoryAudit;
-
+GO
 
 Таск 1 решение
 -- Classifies products based on their current stock levels
