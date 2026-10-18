@@ -1,8 +1,9 @@
 # My-SQL-Server-Learning-Portfolio
 
-Welcome to my journey into Advanced SQL! :)
+The portfolio is structured into folders, covering different SQL concepts, with practical exercises demonstrating the skills applied in each area.
 
-My goal with this repository is to show my progress, demonstrate my SQL skills, and identify areas where I can continue improving. It contains SQL examples organized by topic, starting with the basics and progressing to more advanced concepts, making the files easy to navigate. 
-The project covers topics such as queries, stored procedures, triggers, transactions, error handling, advanced SQL concepts, and real-time SQL scenarios, with practical examples and clear comments throughout.
+Featured Projects:
+1. [View Project 1 - Stock Management](8-SQL-Scenarios/1-Stock-Management.sql)
+- A real-life scenario simulating a warehouse inventory system that automatically tracks product quantities, records stock changes, and updates product information using database triggers.
 
-Have fun!
+
