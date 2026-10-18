@@ -20,4 +20,4 @@ The analysis is designed to:
 ** Analysis requirement: Before running this scenario, the database and its tables must be created using the setup scripts in the 1-Basic-SQL-Queries and the 2-User-Defined-Functions folders.
 
 3. [Click to View Project 3 - Inventory Movement Analysis](8-SQL-Scenarios/3-Inventory-Movement-Analysis.sql)
-
+A scenario analysing warehouse inventory to identify products with insufficient stock, calculate the total quantities received for each product, track inventory changes over time (increase/decrease in quantity), and summarise inventory activity by the overall net change for each product. 
