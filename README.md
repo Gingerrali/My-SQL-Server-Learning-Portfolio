@@ -1,6 +1,6 @@
 # My-SQL-Server-Portfolio
 
-This portfolio demonstrates my knowledge into the different concepts I have learnt from working with Microsoft SQL Server, and T-SQL. Folders are used for easier navigation, and begin from the most basic queries to the more advanced ones. Examples are visible in each scenario to showcase how a given faction can be used in real-life situations.
+This portfolio demonstrates my practical knowledge of Microsoft SQL Server, and T-SQL. The folders are numbered for easier navigation, starting from basic queries to more advanced SQL concepts. Examples are used in each scenario to show how different SQL techniques can be applied in practice and in real-world situations.
 
 Featured Projects:
 1. [Click to View Project 1 - Stock Management](8-SQL-Scenarios/1-Stock-Management.sql)
