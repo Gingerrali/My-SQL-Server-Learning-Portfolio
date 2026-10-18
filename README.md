@@ -17,4 +17,4 @@ The analysis is designed to:
 - Retrieve customers with a specified at a time minimum revenue;
 - Handle invalid revenue inputs using TRY...CATCH error handling;
 
-* Database requirement: Before running this scenario, the database and its tables must be created using the setup scripts in the 1-Basic-SQL-Queries folder.
+** Database requirement: Before running this scenario, the database and its tables must be created using the setup scripts in the 1-Basic-SQL-Queries and the 2-User-Defined-Functions folders.
