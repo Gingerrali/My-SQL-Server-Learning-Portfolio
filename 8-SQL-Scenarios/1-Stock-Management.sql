@@ -1,3 +1,7 @@
+-- Scenario:
+-- This project demonstrates how product stock is tracked and updated.
+-- To explore the results without reading SQL code, see: 1.1-Visualisation-on-PowerBI.png.
+
 -- Creates the main table for storing product stock information.
 CREATE TABLE dbo.Products (
     ProductID int IDENTITY PRIMARY KEY,
