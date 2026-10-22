@@ -2,6 +2,7 @@
 -- The company needs a customer order analysis to identify
 -- the most active customers and those generating the highest revenue,
 -- then to categorize customers based on their total revenue.
+-- To explore the results without reading SQL code, see: 2.1-Visualisation-on-PowerBI.png.
 
 -- Displays the tables used for the analysis.
 SELECT * FROM Orders.Customers;
