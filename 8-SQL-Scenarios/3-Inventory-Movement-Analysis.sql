@@ -1,6 +1,7 @@
 -- Scenario:
 -- The company needs to monitor its warehouse inventory in order to identify products with
 -- insufficient stock, track inventory changes over time, and review previous stock deliveries.
+-- To explore the results without reading SQL code, see: 3.1-Visualisation-on-PowerBI.png.
 
 -- Displays the tables used for the analysis.
 SELECT * FROM dbo.Products;
